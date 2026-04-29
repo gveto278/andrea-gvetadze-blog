@@ -18,7 +18,7 @@ export default function About() {
           </div>
           <div className="w-full md:w-2/3">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">{currentUser.name}</h3>
-            <p className="text-xl text-blue-600 font-medium mb-6">{currentUser.bio}</p>
+            <p className="text-xl text-accent font-medium mb-6">{currentUser.bio}</p>
             <div className="space-y-4 text-gray-600 leading-relaxed text-lg">
               <p>
                 Hello! I'm Andrea, a passionate software developer based in Tbilisi, Georgia. 

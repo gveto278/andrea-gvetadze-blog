@@ -40,20 +40,20 @@ export default function Home() {
 
       <Section 
         title="Subscribe to our Newsletter" 
-        className="bg-blue-50 p-8 md:p-12 rounded-2xl border border-blue-100"
+        className="bg-primary/5 p-8 md:p-12 rounded-2xl border border-primary/10"
       >
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-bold text-blue-900 mb-2">Never miss an update</h3>
-            <p className="text-blue-700 text-lg">Get the latest articles, tutorials, and resources directly in your inbox.</p>
+            <h3 className="text-2xl font-bold text-primary mb-2">Never miss an update</h3>
+            <p className="text-primary/80 text-lg">Get the latest articles, tutorials, and resources directly in your inbox.</p>
           </div>
           <div className="md:w-1/2 w-full flex flex-col sm:flex-row gap-3">
             <input 
               type="email" 
               placeholder="Enter your email address" 
-              className="flex-grow px-4 py-3 rounded-lg border border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+              className="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
             />
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-sm whitespace-nowrap">
+            <button className="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-[#152842] active:scale-95 transition-all shadow-sm whitespace-nowrap">
               Subscribe Now
             </button>
           </div>

@@ -14,7 +14,7 @@ export default function Header({ links }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="text-2xl font-bold text-blue-600">
+            <Link to="/" className="text-2xl font-bold text-primary">
               BlogApp
             </Link>
           </div>
@@ -25,7 +25,7 @@ export default function Header({ links }: HeaderProps) {
               <Link
                 key={link.path}
                 to={link.path}
-                className="text-gray-600 hover:text-blue-600 transition-colors px-3 py-2 rounded-md font-medium"
+                className="text-gray-600 hover:text-accent hover:underline transition-all px-3 py-2 rounded-md font-medium"
               >
                 {link.label}
               </Link>
@@ -36,7 +36,7 @@ export default function Header({ links }: HeaderProps) {
           <div className="flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-blue-600 focus:outline-none p-2"
+              className="text-gray-600 hover:text-accent focus:outline-none p-2 transition-colors"
               aria-label="Toggle menu"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -60,7 +60,7 @@ export default function Header({ links }: HeaderProps) {
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-accent hover:bg-gray-50 transition-all"
               >
                 {link.label}
               </Link>

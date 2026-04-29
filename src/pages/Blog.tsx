@@ -51,13 +51,13 @@ export default function Blog() {
         <div className="flex justify-center gap-4 mb-8">
           <button 
             onClick={() => setFilter('all')} 
-            className={`px-6 py-2 rounded-full font-medium transition-colors ${filter === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
+            className={`px-6 py-2 rounded-full font-medium transition-colors ${filter === 'all' ? 'bg-primary text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
           >
             All Posts
           </button>
           <button 
             onClick={() => setFilter('1')} 
-            className={`px-6 py-2 rounded-full font-medium transition-colors ${filter === '1' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
+            className={`px-6 py-2 rounded-full font-medium transition-colors ${filter === '1' ? 'bg-primary text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
           >
             Author 1
           </button>
