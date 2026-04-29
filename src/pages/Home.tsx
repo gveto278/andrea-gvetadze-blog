@@ -4,8 +4,10 @@ import Section from '../components/Section';
 import Card from '../components/Card';
 import { blogPosts } from '../data';
 import { Link } from 'react-router-dom';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 export default function Home() {
+  usePageTitle('Home');
   const featuredPosts = blogPosts.slice(0, 3);
 
   return (

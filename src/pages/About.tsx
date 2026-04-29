@@ -1,8 +1,10 @@
 import React from 'react';
 import Section from '../components/Section';
 import { currentUser } from '../data';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 export default function About() {
+  usePageTitle('About Me');
   return (
     <div className="py-12">
       <Section title="About Me">

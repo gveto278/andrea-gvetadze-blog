@@ -3,6 +3,7 @@ import Section from '../components/Section';
 import Card from '../components/Card';
 import Badge from '../components/Badge';
 import { Link } from 'react-router-dom';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 interface ApiPost {
   id: number;
@@ -12,6 +13,7 @@ interface ApiPost {
 }
 
 export default function Blog() {
+  usePageTitle('Blog');
   const [posts, setPosts] = useState<ApiPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

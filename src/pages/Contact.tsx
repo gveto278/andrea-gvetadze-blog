@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Section from '../components/Section';
 import Button from '../components/Button';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 export default function Contact() {
+  usePageTitle('Contact');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
