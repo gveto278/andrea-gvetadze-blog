@@ -15,7 +15,7 @@ export default function Hero({ title, subtitle, ctaText, ctaLink }: HeroProps) {
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight mb-4">
         {title}
       </h1>
-      <p className="max-w-2xl mx-auto text-xl text-gray-500 mb-8 leading-relaxed">
+      <p className="max-w-2xl mx-auto text-sm md:text-base text-gray-500 mb-8 leading-relaxed">
         {subtitle}
       </p>
       <Link to={ctaLink}>

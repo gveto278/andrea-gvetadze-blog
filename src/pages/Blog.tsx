@@ -43,7 +43,7 @@ export default function Blog() {
     <div className="py-12">
       <div className="mb-12 text-center">
         <h1 className="text-4xl font-extrabold text-gray-900 mb-4">The Blog</h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+        <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto mb-8">
           Insights, tutorials, and deep dives into frontend development.
         </p>
         
@@ -78,7 +78,7 @@ export default function Blog() {
         )}
         
         {!loading && !error && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPosts.map((post) => (
               <Link to={`/blog/${post.id}`} key={post.id} className="block group">
                 <div className="h-full transform transition duration-300 group-hover:-translate-y-1 relative">

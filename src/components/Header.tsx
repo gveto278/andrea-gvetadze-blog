@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { NavLink as NavLinkType } from '../types';
+import type { NavLink as NavLinkType } from '../types';
 
 interface HeaderProps {
   links: NavLinkType[];
@@ -60,7 +60,7 @@ export default function Header({ links }: HeaderProps) {
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-accent hover:bg-gray-50 transition-all"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-accent hover:underline hover:bg-gray-50 transition-colors"
               >
                 {link.label}
               </Link>

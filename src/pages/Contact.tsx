@@ -36,7 +36,7 @@ export default function Contact() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <h3 className="text-3xl font-bold mb-3">Message Sent!</h3>
-              <p className="text-lg">Thanks for reaching out. I'll get back to you as soon as possible.</p>
+              <p className="text-sm md:text-base">Thanks for reaching out. I'll get back to you as soon as possible.</p>
               <Button variant="outline" className="mt-8" onClick={() => setIsSubmitted(false)}>
                 Send another message
               </Button>
@@ -82,7 +82,7 @@ export default function Contact() {
                   placeholder="How can I help you?"
                 ></textarea>
               </div>
-              <Button type="submit" variant="primary" className="w-full py-3 text-lg">
+              <Button type="submit" variant="primary" className="w-full py-3 text-sm md:text-base">
                 Send Message
               </Button>
             </form>

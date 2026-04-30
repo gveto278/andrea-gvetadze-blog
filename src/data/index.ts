@@ -1,4 +1,4 @@
-import { BlogPost, NavLink, User } from '../types';
+import type { BlogPost, NavLink, User } from '../types';
 
 export const currentUser: User = {
   id: 'u1',
