@@ -1,4 +1,3 @@
-import React from 'react';
 import Section from '../components/Section';
 import { currentUser } from '../data';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -11,8 +10,9 @@ export default function About() {
         <div className="flex flex-col md:flex-row gap-12 items-center md:items-start bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100">
           <div className="w-full md:w-1/3 flex justify-center">
             <img 
-              src={currentUser.avatarUrl || 'https://via.placeholder.com/300'} 
+              src={currentUser.avatarUrl || 'https://via.placeholder.com/300.webp'} 
               alt={currentUser.name} 
+              loading="lazy"
               className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-md border-4 border-white"
             />
           </div>

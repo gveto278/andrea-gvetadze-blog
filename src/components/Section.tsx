@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import { memo } from 'react';
+import type { ReactNode } from 'react';
 
 interface SectionProps {
   title: string;
@@ -7,7 +8,7 @@ interface SectionProps {
   className?: string;
 }
 
-export default function Section({ title, description, children, className = '' }: SectionProps) {
+const Section = memo(function Section({ title, description, children, className = '' }: SectionProps) {
   return (
     <section className={`mb-16 ${className}`}>
       <div className="mb-8">
@@ -19,4 +20,6 @@ export default function Section({ title, description, children, className = '' }
       </div>
     </section>
   );
-}
+});
+
+export default Section;

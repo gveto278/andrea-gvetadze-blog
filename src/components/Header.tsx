@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback, memo } from 'react';
 import { Link } from 'react-router-dom';
 import type { NavLink as NavLinkType } from '../types';
 
@@ -6,8 +6,16 @@ interface HeaderProps {
   links: NavLinkType[];
 }
 
-export default function Header({ links }: HeaderProps) {
+const Header = memo(function Header({ links }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = useCallback(() => {
+    setIsOpen(prev => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -35,7 +43,7 @@ export default function Header({ links }: HeaderProps) {
           {/* Mobile Menu Button */}
           <div className="flex md:hidden">
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={toggleMenu}
               className="text-gray-600 hover:text-accent focus:outline-none p-2 transition-colors"
               aria-label="Toggle menu"
             >
@@ -59,7 +67,7 @@ export default function Header({ links }: HeaderProps) {
               <Link
                 key={link.path}
                 to={link.path}
-                onClick={() => setIsOpen(false)}
+                onClick={closeMenu}
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-accent hover:underline hover:bg-gray-50 transition-colors"
               >
                 {link.label}
@@ -70,4 +78,6 @@ export default function Header({ links }: HeaderProps) {
       )}
     </header>
   );
-}
+});
+
+export default Header;

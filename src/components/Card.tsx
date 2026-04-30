@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 
 export interface CardProps {
   title: string;
@@ -6,14 +6,16 @@ export interface CardProps {
   description: string;
 }
 
-export default function Card({ title, image, description }: CardProps) {
+const Card = memo(function Card({ title, image, description }: CardProps) {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 flex flex-col h-full border border-gray-100">
-      <img src={image} alt={title} className="w-full h-48 object-cover" />
+      <img src={image} alt={title} loading="lazy" className="w-full h-48 object-cover" />
       <div className="p-5 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
         <p className="text-sm md:text-base text-gray-600 flex-grow line-clamp-3">{description}</p>
       </div>
     </div>
   );
-}
+});
+
+export default Card;
