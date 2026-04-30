@@ -1,30 +1,27 @@
 import React, { useState } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import Section from '../components/Section';
 import Button from '../components/Button';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 export default function Contact() {
   usePageTitle('Contact');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
-  };
+  const formik = useFormik({
+    initialValues: { name: '', email: '', message: '' },
+    validationSchema: Yup.object({
+      name: Yup.string().required('სახელი სავალდებულოა'),
+      email: Yup.string().email('არასწორი ელ-ფოსტა').required('ელ-ფოსტა სავალდებულოა'),
+      message: Yup.string().min(10, 'მინ. 10 სიმბოლო').required('შეტყობინება სავალდებულოა')
+    }),
+    onSubmit: (values) => {
+      console.log('Form submitted:', values);
+      setIsSubmitted(true);
+      formik.resetForm();
+    }
+  });
 
   return (
     <div className="py-12 max-w-3xl mx-auto">
@@ -42,19 +39,22 @@ export default function Contact() {
               </Button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={formik.handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Name</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
+                  value={formik.values.name}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  className={`w-full px-4 py-3 rounded-lg border ${formik.touched.name && formik.errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'} focus:outline-none focus:ring-2 transition-shadow`}
                   placeholder="John Doe"
                 />
+                {formik.touched.name && formik.errors.name ? (
+                  <div className="text-red-500 text-sm mt-1">{formik.errors.name}</div>
+                ) : null}
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
@@ -62,25 +62,31 @@ export default function Contact() {
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  className={`w-full px-4 py-3 rounded-lg border ${formik.touched.email && formik.errors.email ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'} focus:outline-none focus:ring-2 transition-shadow`}
                   placeholder="john@example.com"
                 />
+                {formik.touched.email && formik.errors.email ? (
+                  <div className="text-red-500 text-sm mt-1">{formik.errors.email}</div>
+                ) : null}
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Message</label>
                 <textarea
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
+                  value={formik.values.message}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow resize-none"
+                  className={`w-full px-4 py-3 rounded-lg border ${formik.touched.message && formik.errors.message ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'} focus:outline-none focus:ring-2 transition-shadow resize-none`}
                   placeholder="How can I help you?"
                 ></textarea>
+                {formik.touched.message && formik.errors.message ? (
+                  <div className="text-red-500 text-sm mt-1">{formik.errors.message}</div>
+                ) : null}
               </div>
               <Button type="submit" variant="primary" className="w-full py-3 text-sm md:text-base">
                 Send Message
