@@ -6,7 +6,7 @@ import Button from '../components/Button';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 export default function Contact() {
-  usePageTitle('Contact');
+  usePageTitle('კონტაქტი');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const formik = useFormik({
@@ -25,23 +25,23 @@ export default function Contact() {
 
   return (
     <div className="py-12 max-w-3xl mx-auto">
-      <Section title="Get in Touch" description="Have a question or want to work together? Drop me a message below.">
-        <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100">
+      <Section title="დამიკავშირდით" description="გაქვთ შეკითხვა ან გსურთ თანამშრომლობა? მომწერეთ შეტყობინება.">
+        <div className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700">
           {isSubmitted ? (
             <div className="bg-green-50 text-green-800 p-8 rounded-xl text-center border border-green-200">
               <svg className="w-20 h-20 text-green-500 mx-auto mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <h3 className="text-3xl font-bold mb-3">Message Sent!</h3>
-              <p className="text-sm md:text-base">Thanks for reaching out. I'll get back to you as soon as possible.</p>
+              <h3 className="text-3xl font-bold dark:text-white mb-3">შეტყობინება გაიგზავნა!</h3>
+              <p className="text-sm md:text-base dark:text-gray-300">მადლობა დაკავშირებისთვის. შევეცდები რაც შეიძლება მალე გიპასუხოთ.</p>
               <Button variant="outline" className="mt-8" onClick={() => setIsSubmitted(false)}>
-                Send another message
+                სხვა შეტყობინების გაგზავნა
               </Button>
             </div>
           ) : (
             <form onSubmit={formik.handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">სახელი</label>
                 <input
                   type="text"
                   id="name"
@@ -49,15 +49,15 @@ export default function Contact() {
                   value={formik.values.name}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  className={`w-full px-4 py-3 rounded-lg border ${formik.touched.name && formik.errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'} focus:outline-none focus:ring-2 transition-shadow`}
-                  placeholder="John Doe"
+                  className={`w-full px-4 py-3 rounded-lg border dark:bg-slate-700 dark:text-white ${formik.touched.name && formik.errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 dark:border-slate-600 focus:ring-blue-500'} focus:outline-none focus:ring-2 transition-shadow`}
+                  placeholder="გიორგი მაისურაძე"
                 />
                 {formik.touched.name && formik.errors.name ? (
                   <div className="text-red-500 text-sm mt-1">{formik.errors.name}</div>
                 ) : null}
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">ელ-ფოსტა</label>
                 <input
                   type="email"
                   id="email"
@@ -65,15 +65,15 @@ export default function Contact() {
                   value={formik.values.email}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  className={`w-full px-4 py-3 rounded-lg border ${formik.touched.email && formik.errors.email ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'} focus:outline-none focus:ring-2 transition-shadow`}
-                  placeholder="john@example.com"
+                  className={`w-full px-4 py-3 rounded-lg border dark:bg-slate-700 dark:text-white ${formik.touched.email && formik.errors.email ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 dark:border-slate-600 focus:ring-blue-500'} focus:outline-none focus:ring-2 transition-shadow`}
+                  placeholder="giorgi@example.com"
                 />
                 {formik.touched.email && formik.errors.email ? (
                   <div className="text-red-500 text-sm mt-1">{formik.errors.email}</div>
                 ) : null}
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">შეტყობინება</label>
                 <textarea
                   id="message"
                   name="message"
@@ -81,15 +81,15 @@ export default function Contact() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   rows={5}
-                  className={`w-full px-4 py-3 rounded-lg border ${formik.touched.message && formik.errors.message ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'} focus:outline-none focus:ring-2 transition-shadow resize-none`}
-                  placeholder="How can I help you?"
+                  className={`w-full px-4 py-3 rounded-lg border dark:bg-slate-700 dark:text-white ${formik.touched.message && formik.errors.message ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 dark:border-slate-600 focus:ring-blue-500'} focus:outline-none focus:ring-2 transition-shadow resize-none`}
+                  placeholder="რით შემიძლია დაგეხმაროთ?"
                 ></textarea>
                 {formik.touched.message && formik.errors.message ? (
                   <div className="text-red-500 text-sm mt-1">{formik.errors.message}</div>
                 ) : null}
               </div>
               <Button type="submit" variant="primary" className="w-full py-3 text-sm md:text-base">
-                Send Message
+                გაგზავნა
               </Button>
             </form>
           )}

@@ -1,10 +1,41 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="ka" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-project</title>
+    <meta name="description" content="AG - ანდრია გვეტაძის პერსონალური ბლოგი ფრონტენდ დეველოპმენტის შესახებ. წაიკითხეთ სტატიები და სიახლეები." />
+    <title>AG - ანდრია გვეტაძე</title>
+
+    <!-- DNS prefetch for external domains -->
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://jsonplaceholder.typicode.com">
+
+    <!-- Preload LCP hero image (first blog post image on home page) -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=60&w=400&auto=format&fm=webp&fit=crop" fetchpriority="high">
+
+    <!-- Critical inline styles to prevent FOIT and layout shift -->
+    <style>
+      /* Prevent dark mode flash */
+      html.dark { background-color: #0f172a; color: #f1f5f9; }
+      /* System font stack - FASTEST possible load */
+      body { 
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+        margin: 0; 
+        line-height: 1.5;
+      }
+      h1, h2, h3, h4, h5, h6 { 
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-weight: 700;
+      }
+      /* Prevent CLS from root */
+      #root { min-height: 100vh; display: flex; flex-direction: column; }
+    </style>
+
+    <!-- Apply dark mode before paint -->
+    <script>
+      (function(){var t=localStorage.getItem('theme');if(t==='dark'||((!t)&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}})();
+    </script>
   </head>
   <body>
     <div id="root"></div>
